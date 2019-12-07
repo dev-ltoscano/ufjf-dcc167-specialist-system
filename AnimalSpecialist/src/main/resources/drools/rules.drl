@@ -1,0 +1,1216 @@
+dialect "mvel"
+
+import com.ufjf.specialist.model.Quiz;
+import com.ufjf.specialist.model.Animal;
+import com.ufjf.specialist.model.Animal.Intensidade;
+import java.util.Collections;
+import java.util.Comparator;
+
+/**
+ *
+ * @author ltosc
+ */
+
+rule "Q1-A1"
+when
+    Quiz(getQ1a() == 1)
+then
+    System.out.println("Q1-A1");
+    q1a1Work();
+end
+
+function void q1a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getCuidados())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() + 100);
+            case Alto:
+                animal.setScore(animal.getScore() + 100);
+            case Medio:
+                animal.setScore(animal.getScore() + 75);
+            case Baixo:
+                animal.setScore(animal.getScore() + 50);
+            case Nenhum:
+                animal.setScore(animal.getScore() + 25);
+                break;
+        }
+    }
+}
+
+rule "Q1-A2"
+when
+    Quiz(getQ1a() == 2)
+then
+    System.out.println("Q1-A2");
+    q1a2Work();
+end
+
+function void q1a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getCuidados())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() - 75);
+                break;
+            case Alto:
+                animal.setScore(animal.getScore() - 50);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Baixo:
+                animal.setScore(animal.getScore() + 75);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q1-A3"
+when
+    Quiz(getQ1a() == 3)
+then
+    System.out.println("Q1-A3");
+    q1a3Work();
+end
+
+function void q1a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getCuidados())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() - 150);
+                break;
+            case Alto:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Baixo:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q1-A4"
+when
+    Quiz(getQ1a() == 4)
+then
+    System.out.println("Q1-A4");
+    q1a4Work();
+end
+
+function void q1a4Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getCuidados())
+        {
+            case Extremo:
+            case Alto:
+            case Medio:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Baixo:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+
+rule "Q2-A1"
+when
+    Quiz(getQ2a() == 1)
+then
+    System.out.println("Q2-A1");
+    q2a1Work();
+end
+
+function void q2a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPerfil())
+        {
+                case Nenhum:
+		case Guarda:
+			animal.setScore(animal.getScore() + 0);
+			break;	
+		case Companheiro:
+		case Guia:
+		case Guia_Companheiro:
+		case Guarda_Companheiro:
+			animal.setScore(animal.getScore() + 25);
+			break;		
+		case Caca:
+		case Caca_Companheiro:
+			animal.setScore(animal.getScore() + 50);
+			break;
+		case Competidor:
+		case Competidor_Guarda:
+                case Competidor_Companheiro:
+			animal.setScore(animal.getScore() + 100);
+			break;		
+        }
+    }
+}
+
+rule "Q2-A2"
+when
+    Quiz(getQ2a() == 2)
+then
+    System.out.println("Q2-A2");
+	q2a2Work();
+end
+
+function void q2a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPerfil())
+        {
+                case Nenhum:
+		case Guarda:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Companheiro:
+		case Guia:
+		case Guia_Companheiro:
+		case Guarda_Companheiro:
+			animal.setScore(animal.getScore() + 25);
+			break;		
+		case Caca:
+		case Caca_Companheiro:
+			animal.setScore(animal.getScore() + 0);
+			break;
+		case Competidor:
+		case Competidor_Guarda:
+                case Competidor_Companheiro:
+			animal.setScore(animal.getScore() - 100);
+			break;		
+        }
+    }
+}
+
+rule "Q2-A3"
+when
+    Quiz(getQ2a() == 3)
+then
+    System.out.println("Q2-A3");
+	q2a3Work();
+end
+
+function void q2a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPerfil())
+        {
+                case Nenhum:
+		case Guarda:
+			animal.setScore(animal.getScore() + 50);
+			break;	
+		case Companheiro:
+		case Guia:
+		case Guia_Companheiro:
+		case Guarda_Companheiro:
+			animal.setScore(animal.getScore() + 25);
+			break;		
+		case Caca:
+		case Caca_Companheiro:
+			animal.setScore(animal.getScore() - 50);
+			break;
+		case Competidor:
+		case Competidor_Guarda:
+        case Competidor_Companheiro:
+			animal.setScore(animal.getScore() - 100);
+			break;		
+        }
+    }
+}
+
+
+
+rule "Q3-A1"
+when
+    Quiz(getQ3a() == 1)
+then
+    System.out.println("Q3-A1");
+    q3a1Work();
+end
+
+function void q3a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getTemperamento())
+        {
+		case Docil:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Em_Parte_Docil:	
+			animal.setScore(animal.getScore() + 25);
+			break;	
+		case Hostil:
+			animal.setScore(animal.getScore() - 100);
+			break;		
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+            case Alto:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q3-A2"
+when
+    Quiz(getQ3a() == 2)
+then
+    System.out.println("Q3-A2");
+    q3a2Work();
+end
+
+function void q3a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getTemperamento())
+        {
+		case Docil:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Em_Parte_Docil:	
+			animal.setScore(animal.getScore() + 25);
+			break;	
+		case Hostil:
+			animal.setScore(animal.getScore() - 100);
+			break;		
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Alto:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q3-A3"
+when
+    Quiz(getQ3a() == 3)
+then
+    System.out.println("Q3-A3");
+    q3a3Work();
+end
+
+function void q3a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getTemperamento())
+        {
+		case Docil:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Em_Parte_Docil:	
+			animal.setScore(animal.getScore() + 50);
+			break;	
+		case Hostil:
+			animal.setScore(animal.getScore() + 25);
+			break;		
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Alto:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+rule "Q3-A4"
+when
+    Quiz(getQ3a() == 4)
+then
+    System.out.println("Q3-A4");
+    q3a4Work();
+end
+
+function void q3a4Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getTemperamento())
+        {
+		case Docil:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Em_Parte_Docil:	
+			animal.setScore(animal.getScore() + 75);
+			break;	
+		case Hostil:
+			animal.setScore(animal.getScore() + 50);
+			break;		
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Alto:
+            case Medio:
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+rule "Q3-A5"
+when
+    Quiz(getQ3a() == 5)
+then
+    System.out.println("Q3-A5");
+    q3a5Work();
+end
+
+function void q3a5Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getTemperamento())
+        {
+		case Docil:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Em_Parte_Docil:	
+			animal.setScore(animal.getScore() + 25);
+			break;	
+		case Hostil:
+			animal.setScore(animal.getScore() - 100);
+			break;		
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+            case Alto:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+rule "Q3-A6"
+when
+    Quiz(getQ3a() == 5)
+then
+    System.out.println("Q3-A6");
+    q3a6Work();
+end
+
+function void q3a6Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getTemperamento())
+        {
+		case Docil:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Em_Parte_Docil:	
+			animal.setScore(animal.getScore() + 25);
+			break;	
+		case Hostil:
+			animal.setScore(animal.getScore() - 100);
+			break;		
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Alto:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+
+
+rule "Q4-A1"
+when
+    Quiz(getQ4a() == 1)
+then
+    System.out.println("Q4-A1");
+    q4a1Work();
+end
+
+function void q4a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAlergicos())
+        {
+            case Extremo:
+            case Alto:
+            case Medio:
+            case Baixo:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+rule "Q4-A2"
+when
+    Quiz(getQ4a() == 2)
+then
+    System.out.println("Q4-A2");
+    q4a2Work();
+end
+
+function void q4a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAlergicos())
+        {
+            case Extremo:
+            case Alto:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Baixo:
+                animal.setScore(animal.getScore() + 75);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q4-A3"
+when
+    Quiz(getQ4a() == 3)
+then
+    System.out.println("Q4-A3");
+    q4a3Work();
+end
+
+function void q4a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAlergicos())
+        {
+            case Extremo:
+            case Alto:
+            case Medio:
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+rule "Q4-A4"
+when
+    Quiz(getQ4a() == 3)
+then
+    System.out.println("Q4-A4");
+    q4a4Work();
+end
+
+function void q4a4Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAlergicos())
+        {
+	    case Extremo:
+            case Alto:
+            case Medio:
+            case Baixo:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+
+
+rule "Q5-A1"
+when
+    Quiz(getQ5a() == 1)
+then
+    System.out.println("Q5-A1");
+    q5a1Work();
+end
+
+function void q5a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+            case Alto:
+            case Medio:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+rule "Q5-A2"
+when
+    Quiz(getQ5a() == 2)
+then
+    System.out.println("Q5-A2");
+    q5a2Work();
+end
+
+function void q5a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+            case Alto:
+            case Medio:
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q5-A3"
+when
+    Quiz(getQ5a() == 3)
+then
+    System.out.println("Q5-A3");
+    q5a3Work();
+end
+
+function void q5a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPorte())
+        {
+            case Extremo:
+            case Alto:
+                animal.setScore(animal.getScore() + 100);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Baixo:
+            case Nenhum:
+                animal.setScore(animal.getScore() - 100);
+                break;
+        }
+    }
+}
+
+
+
+rule "Q6-A1"
+when
+    Quiz(getQ6a() == 1)
+then
+    System.out.println("Q6-A1");
+    q6a1Work();
+end
+
+function void q6a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAmigavel())
+        {
+            case Nao:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Criancas:
+            case OutrosPets:
+            case Estranhos:
+            case Criancas_OutrosPets:
+            case Criancas_OutrosPets_Estranhos:
+            case OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q6-A2"
+when
+    Quiz(getQ6a() == 2)
+then
+    System.out.println("Q6-A2");
+    q6a2Work();
+end
+
+function void q6a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAmigavel())
+        {
+            case Nao:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Criancas:
+            case OutrosPets:
+            case Estranhos:
+            case Criancas_OutrosPets:
+            case Criancas_OutrosPets_Estranhos:
+            case OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 75);
+                break;
+        }
+    }
+}
+
+rule "Q6-A3"
+when
+    Quiz(getQ6a() == 3)
+then
+    System.out.println("Q6-A3");
+    q6a3Work();
+end
+
+function void q6a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAmigavel())
+        {
+            case Nao:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Criancas:
+                animal.setScore(animal.getScore() + 100);
+                break;
+            case Criancas_OutrosPets:
+                animal.setScore(animal.getScore() + 75);
+                break;
+            case Criancas_OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 75);
+                break;
+            case OutrosPets:
+            case Estranhos:
+            case OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 25);
+                break;
+        }
+    }
+}
+
+rule "Q6-A4"
+when
+    Quiz(getQ6a() == 4)
+then
+    System.out.println("Q6-A4");
+    q6a4Work();
+end
+
+function void q6a4Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAmigavel())
+        {
+            case Nao:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Criancas:
+            case Criancas_OutrosPets:
+            case Criancas_OutrosPets_Estranhos:
+            case OutrosPets:
+            case Estranhos:
+            case OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+
+rule "Q7-A1"
+when
+    Quiz(getQ7a() == 1)
+then
+    System.out.println("Q7-A1");
+    q7a1Work();
+end
+
+function void q7a1Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAmigavel())
+        {
+            case Nao:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Criancas:
+            case OutrosPets:
+            case Estranhos:
+            case Criancas_OutrosPets:
+            case Criancas_OutrosPets_Estranhos:
+            case OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPerfil())
+        {
+		case Guia:
+		case Guia_Companheiro:
+		case Guarda_Companheiro:
+		case Caca_Companheiro:
+		case Companheiro:
+			animal.setScore(animal.getScore() + 100);
+			break;	
+		case Guarda:
+		case Caca:
+			animal.setScore(animal.getScore() + 50);
+			break;
+		case Competidor:
+		case Competidor_Guarda:
+                case Competidor_Companheiro:
+			animal.setScore(animal.getScore() + 25);
+			break;		
+        }
+    }	
+}
+
+rule "Q7-A2"
+when
+    Quiz(getQ7a() == 2)
+then
+    System.out.println("Q7-A2");
+    q7a2Work();
+end
+
+function void q7a2Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAmigavel())
+        {
+            case Nao:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Criancas:
+            case OutrosPets:
+            case Estranhos:
+            case Criancas_OutrosPets:
+            case Criancas_OutrosPets_Estranhos:
+            case OutrosPets_Estranhos:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getPerfil())
+        {
+            case Guia:
+            case Guia_Companheiro:
+            case Guarda_Companheiro:
+            case Caca_Companheiro:
+            case Companheiro:
+		animal.setScore(animal.getScore() + 100);
+		break;	
+            case Guarda:
+            case Caca:
+            case Competidor:
+            case Competidor_Guarda:
+            case Competidor_Companheiro:
+		animal.setScore(animal.getScore() + 75);
+		break;		
+        }
+    }	
+}
+
+rule "Q7-A3"
+when
+    Quiz(getQ7a() == 3)
+then
+    System.out.println("Q7-A3");
+    q7a3Work();
+end
+
+function void q7a3Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getAlergicos())
+        {
+            case Extremo:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Alto:
+            case Medio:
+                animal.setScore(animal.getScore() - 25);
+                break;
+            case Baixo:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+rule "Q7-A4"
+when
+    q : Quiz(getQ7a() == 4)
+then
+    System.out.println("Q7-A4");
+    q7a4Work();
+end
+
+function void q7a4Work()
+{
+    Animal animal;
+
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        
+        switch(animal.getBarulhento())
+        {
+            case Extremo:
+            case Alto:
+                animal.setScore(animal.getScore() - 100);
+                break;
+            case Medio:
+                animal.setScore(animal.getScore() + 25);
+                break;
+            case Baixo:
+                animal.setScore(animal.getScore() + 50);
+                break;
+            case Nenhum:
+                animal.setScore(animal.getScore() + 100);
+                break;
+        }
+    }
+}
+
+
+
+rule "Result"
+salience -100
+when
+    q : Quiz()
+then
+    q.setResultAnimal(resultWork());
+end
+
+function String resultWork()
+{
+    if(Animal.getAnimalList().isEmpty())
+    {
+        return "Nenhum";
+    }
+    
+    // Ordenando pelo Score (Maior para menor)
+    Collections.sort(Animal.getAnimalList(), new Comparator<Animal>() 
+    {
+        @Override
+        public int compare(Animal animal2, Animal animal1)
+        {
+            return (animal1.getScore() < animal2.getScore()) ? -1 : 
+            ((animal1.getScore() == animal2.getScore()) ? 0 : 1);
+        }
+    });
+    
+    Animal animal;
+    String especie;
+    String raca;
+    
+    // Imprimindo pontuação dos animais
+    for(int i = 0; i < Animal.getAnimalList().size(); i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        especie = animal.getEspecie();
+        raca = animal.getRaca();
+        
+        if(raca != null)
+        {
+            System.out.println(especie + " " + raca + " - " + animal.getScore());
+        }
+        else
+        {
+            System.out.println(especie + " - " + animal.getScore());
+        }
+    }
+    
+    // Quantidade de resultados que serão exibidos (Mínimo 1)
+    int animalResultSize = (int)(Animal.getAnimalList().size() * 0.3);
+    int resultSize = (animalResultSize >= 1) ? animalResultSize : 1;
+    
+    String resultAnimalList = "";
+    
+    for(int i = 0; i < resultSize; i++)
+    {
+        animal = Animal.getAnimalList().get(i);
+        especie = animal.getEspecie();
+        raca = animal.getRaca();
+        
+        if(raca != null)
+        {
+            resultAnimalList += especie + " - " + raca + ", ";
+        }
+        else
+        {
+            resultAnimalList += especie + ", ";
+        }
+    }
+    
+    resultAnimalList = resultAnimalList.substring(0, (resultAnimalList.length() - 2));
+    System.out.println(resultAnimalList);
+    
+    // Retorna a lista de espécies do resultado (Removendo a vírgula e espaço do final da String)
+    return resultAnimalList;
+}

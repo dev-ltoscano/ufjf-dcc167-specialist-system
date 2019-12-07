@@ -1,0 +1,309 @@
+<html xmlns="html" xmlns:n="native" xmlns:z="zul" xmlns:zk="zk">
+    <head>
+        <title>Animal Specialist</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+        <!-- Material Design Lite -->
+        <link rel="stylesheet" href="css/material.teal-red.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <script src="js/material.min.js"></script>
+
+        <!-- JQuery -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/script.js"></script>
+    </head>
+
+    <body>
+        <div apply="org.zkoss.bind.BindComposer"
+             viewModel="@id('vm') @init('com.ufjf.specialist.viewmodel.IndexViewModel')">
+            <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+                <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+                    <div class="mdl-layout__header-row">
+                        <span class="mdl-layout-title">Animal de Estimação</span>
+                    </div>
+                </header>
+                <div class="demo-ribbon"></div>
+                <main class="demo-main mdl-layout__content">
+                    <div class="demo-container mdl-grid">
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+
+                        <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                            <div>
+                                <div id="div-questions">
+                                    <h3 style="margin-bottom: 50px">Responda o questionário</h3>
+                                    <div id="q1">
+                                        <h5>Questão 1: Você tem muito tempo livre?</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-a1">
+                                                    <input type="radio" id="q1-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q1a', answer=1)">
+                                                        <span class="mdl-radio__label">Sim e gostaria de dedicá-lo a um animal de estimação</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-a2">
+                                                    <input type="radio" id="q1-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q1a', answer=2)">
+                                                        <span class="mdl-radio__label">Tenho algum tempo livre, mas não muito</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-a3">
+                                                    <input type="radio" id="q1-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q1a', answer=3)">
+                                                        <span class="mdl-radio__label">Sou muito ocupado, quase não tenho tempo livre</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-a4">
+                                                    <input type="radio" id="q1-a4" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q1a', answer=4)">
+                                                        <span class="mdl-radio__label">Tenho muito tempo livre, mas prefiro que ele continue livre</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+                                
+                                    <div id="q2" style="display: none">
+                                        <h5>Questão 2: Você gosta/tem disposição para se exercitar?</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-a1">
+                                                    <input type="radio" id="q2-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q2a', answer=1)">
+                                                        <span class="mdl-radio__label">Sim, muita</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-a2">
+                                                    <input type="radio" id="q2-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q2a', answer=2)">
+                                                        <span class="mdl-radio__label">Só um pouco</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-a3">
+                                                    <input type="radio" id="q2-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q2a', answer=3)">
+                                                        <span class="mdl-radio__label">Prefiro descansar</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+                                
+                                    <div id="q3" style="display: none">
+                                        <h5>Questão 3: Você mora em:</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q3-a1">
+                                                    <input type="radio" id="q3-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q3a', answer=1)">
+                                                        <span class="mdl-radio__label">Apartamento Pequeno</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q3-a2">
+                                                    <input type="radio" id="q3-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q3a', answer=2)">
+                                                        <span class="mdl-radio__label">Apartamento Grande</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q3-a3">
+                                                    <input type="radio" id="q3-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q3a', answer=3)">
+                                                        <span class="mdl-radio__label">Casa Pequena</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q3-a4">
+                                                    <input type="radio" id="q3-a4" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q3a', answer=4)">
+                                                        <span class="mdl-radio__label">Casa Grande</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q3-a5">
+                                                    <input type="radio" id="q3-a5" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q3a', answer=5)">
+                                                        <span class="mdl-radio__label">Condominio que não permite animais fora de casa</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q3-a6">
+                                                    <input type="radio" id="q3-a6" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q3a', answer=6)">
+                                                        <span class="mdl-radio__label">Condominio que permite animais fora de casa</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+                                
+                                    <div id="q4" style="display: none">
+                                        <h5>Questão 4: Como você se sente em relação a pêlos nas suas roupas ou no ambiente?</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q4-a1">
+                                                    <input type="radio" id="q4-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q4a', answer=1)">
+                                                        <span class="mdl-radio__label">Odeio!</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q4-a2">
+                                                    <input type="radio" id="q4-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q4a', answer=2)">
+                                                        <span class="mdl-radio__label">Prefiro sem, mas não é tão grave</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q4-a3">
+                                                    <input type="radio" id="q4-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q4a', answer=3)">
+                                                        <span class="mdl-radio__label">Faz parte da experiência de ter um animal de estimação</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q4-a4">
+                                                    <input type="radio" id="q4-a4" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q4a', answer=4)">
+                                                        <span class="mdl-radio__label">Sou alérgico</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    
+                                    <div id="q5" style="display: none">
+                                        <h5>Questão 5: O que você acha em relação às coisas em miniatura como casas de boneca, maquetes, mini-mundo?</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q5-a1">
+                                                    <input type="radio" id="q5-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q5a', answer=1)">
+                                                        <span class="mdl-radio__label">Adoro! Quanto menor e com mais detalhes mais legal!</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q5-a2">
+                                                    <input type="radio" id="q5-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q5a', answer=2)">
+                                                        <span class="mdl-radio__label">Tanto faz</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q5-a3">
+                                                    <input type="radio" id="q5-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q5a', answer=3)">
+                                                        <span class="mdl-radio__label">Prefiro coisas grandes</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    
+                                    <div id="q6" style="display: none">
+                                        <h5>Questão 6: Quem mora na mesma casa que você?</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q6-a1">
+                                                    <input type="radio" id="q6-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q6a', answer=1)">
+                                                        <span class="mdl-radio__label">Moro sozinho</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q6-a2">
+                                                    <input type="radio" id="q6-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q6a', answer=2)">
+                                                        <span class="mdl-radio__label">Eu e mais pessoas, todos adultos</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q6-a3">
+                                                    <input type="radio" id="q6-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q6a', answer=3)">
+                                                        <span class="mdl-radio__label">Eu e mais pessoas, contendo crianças</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q6-a4">
+                                                    <input type="radio" id="q6-a4" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q6a', answer=4)">
+                                                        <span class="mdl-radio__label">Eu e mais pessoas, de várias idades diferentes(incluindo idosos)</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    
+                                    <div id="q7" style="display: none">
+                                        <h5>Questão 7: Dos problemas abaixo, com qual você mais se identifica?</h5>
+                                        <p>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q7-a1">
+                                                    <input type="radio" id="q7-a1" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q7a', answer=1)">
+                                                        <span class="mdl-radio__label">Eu me sinto solitário</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q7-a2">
+                                                    <input type="radio" id="q7-a2" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q7a', answer=2)">
+                                                        <span class="mdl-radio__label">Eu me sinto estressado</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q7-a3">
+                                                    <input type="radio" id="q7-a3" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q7a', answer=3)">
+                                                        <span class="mdl-radio__label">Minha casa está sempre bagunçada</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                            <div class="answer-option">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q7-a4">
+                                                    <input type="radio" id="q7-a4" class="mdl-radio__button" name="options" onCheck="@command('setAnswer', answerVariable='q7a', answer=4)">
+                                                        <span class="mdl-radio__label">Os vizinhos fazem barulho demais</span>
+                                                    </input>
+                                                </label>
+                                            </div>
+                                        </p>
+                                    </div>
+
+                                    <div id="div-nav-buttons">
+                                        <z:button id="btnForward" 
+                                                  image="/img/keyboard_arrow_right_1x.png" 
+                                                  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored btn-forward"
+                                                  disabled="@bind(vm.disableBtnForward)"
+                                                  onClick="@command('nextQuestion')">
+                                        </z:button>
+
+                                        <z:div visible="@bind(!vm.disableBtnSend)">
+                                            <center>
+                                                <button id="btnSend"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-send"
+                                                        onClick="@command('sendQuiz')">Enviar</button>
+                                            </center>
+                                        </z:div>
+                                    </div>
+                                </div>
+                                
+                                <div id="div-result" style="display: none">
+                                    <center>
+                                        <img style="width:50%" src="img/pet.jpg" />
+                                        <h3 style="margin-top: 30px">O seu animal de estimação ideal é: <br></br>
+                                            <z:label style="font-size: 32px" value="@bind(vm.resultAnimal)" />
+                                        </h3>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
