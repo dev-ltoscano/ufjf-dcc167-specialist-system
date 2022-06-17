@@ -13,7 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <drools.version>6.5.0.Final</drools.version>
+        <drools.version>7.60.0.Final</drools.version>
         <zk.version>8.0.1.1</zk.version>
     </properties>
     
